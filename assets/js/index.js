@@ -49,6 +49,7 @@ const petsInfoResize = (moreInfo, i) => {
             btnOpen[i].style.display = "block";
             petOption[i].style.flexDirection = "column";
             petOptionImg[i].style.width = "100%";
+            petOptionInfo[i].style.width = "100%";
             petOptionInfoTexto[i].style.display = "none";
         }
     }
@@ -70,7 +71,6 @@ btnClose.forEach((btn, i) => {
 
 
 window.addEventListener("resize", (e) => {
-    console.log("Janela redimensionada");
     for(let i = 0; i < btnOpen.length; i++) {
         petsInfoResize(moreInfo, i);
     }
