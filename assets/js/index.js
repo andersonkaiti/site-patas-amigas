@@ -15,6 +15,7 @@ const petsInfoResize = (moreInfo, i) => {
             btnOpen[i].style.display = "none";
             petOption[i].style.flexDirection = "column";
             petOptionImg[i].style.width = "100%";
+            petOptionInfo[i].style.width = "100%";
             petOptionInfoTexto[i].style.display = "inline";
         } else if (window.innerWidth <= 850) {
             petContainer[i].style.width = "100%";
@@ -22,6 +23,7 @@ const petsInfoResize = (moreInfo, i) => {
             btnOpen[i].style.display = "none";
             petOptionImg[i].style.width = "100%";
             petOption[i].style.flexDirection = "column";
+            petOptionInfo[i].style.width = "100%";
             petOptionInfoTexto[i].style.display = "inline";
         } else {
             petContainer[i].style.width = "100%";
