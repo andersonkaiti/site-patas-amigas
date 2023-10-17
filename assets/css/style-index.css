@@ -81,7 +81,7 @@ section .content h1 {
 .pet-container {
     width: 33.33%;
     padding: 1em;
-    transition: width .5s;
+    transition: width .5s !important;
 }
 
 .pet-option {

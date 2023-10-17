@@ -19,9 +19,9 @@ body {
 }
 
 main {
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
-    padding: 2em;
+    padding: 0 2em 2em 2em;
 }
 
 section {
@@ -31,17 +31,21 @@ section {
 
 section h1 {
     margin: 1em 0;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
     color: var(--black);
 }
 
 section p {
     text-align: justify;
     text-indent: 3em;
+    line-height: 2em;
     color: var(--black);
 }
 
 .law {
-    max-width: 500px;
+    max-width: 600px;
     align-self: flex-end;
     padding: 1em 0;
 }
@@ -50,9 +54,10 @@ section p {
     display: flex;
 }
 
-.law-title img {
+.law-title svg {
     width: 20px;
     margin-right: .5em;
+    fill: var(--black);
 }
 
 .law p {
