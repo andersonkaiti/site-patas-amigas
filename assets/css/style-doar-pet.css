@@ -1,0 +1,97 @@
+:root {
+    --blue: #00abad;
+    --blue-hover: #00ced1;
+    --white: #fff;
+    --black: #000;
+}
+
+[data-theme="dark"] {
+    --blue: #006364;
+    --blue-hover: #008486;
+    --white: #000;
+    --black: #fff;
+}
+
+body {
+    background-color: var(--white);
+}
+
+h1 {
+    color: var(--black);
+}
+
+.main-content {
+    display: flex;
+}
+
+.img {
+    width: 50%;
+    height: 55em;
+    overflow: hidden;
+}
+
+.img img {
+    object-fit: cover;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+    width: 50%;
+}
+
+form {
+    width: 100%;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    transition: .2s;
+    color: var(--black);
+}
+
+.input-answer {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--black);
+    background-color: transparent;
+    width: 100%;
+    padding: .2em;
+    color: var(--black);
+}
+
+.input-answer:focus ~ .input-label,
+.input-answer:valid ~ .input-label {
+    top: -1.2em;
+    font-size: .8em;
+}
+
+.submit {
+    padding: 1em;
+    color: #FFF;
+    background-color: var(--blue);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    margin: 1em 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit:hover {
+    background-color: var(--blue-hover);
+}
+
+.init-hidden {
+    transform: translateX(20%) !important;
+}
