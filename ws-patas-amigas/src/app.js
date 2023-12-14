@@ -10,7 +10,7 @@ app.use(express.urlencoded({
     extended: true
 }))
 app.use(cors({
-    origin: ["http://patas-amigas.vercel.app"],
+    origin: ["http://localhost:5173"], // https://patas-amigas.vercel.app
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
 }));

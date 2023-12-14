@@ -1,11 +1,18 @@
 require("dotenv").config();
 var admin = require("firebase-admin");
+
 var serviceAccount = require("../firebase-key.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: process.env.BUCKET
 });
+
+if(admin.app().name) {
+    console.log("Firebase conectado com sucesso!");
+} else {
+    console.error("Erro ao se conectar ao Firebase.");
+}
 
 const bucket = admin.storage().bucket();
 

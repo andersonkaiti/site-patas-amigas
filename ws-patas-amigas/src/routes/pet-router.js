@@ -30,7 +30,7 @@ router.post("/register-pet", petController.verifyToken, multer.single("image"), 
 router.post("/update-pet-validation", petController.verifyTokenPetEdit);
 
 // atualiza os dados do pet
-router.post("/update-pet", multer.single("image"), petController.verifyToken, updateImage, petController.updatePet);
+router.put("/update-pet", multer.single("image"), petController.verifyToken, updateImage, petController.updatePet);
 
 // deleta o registro do pet
 router.post("/delete-pet", petController.verifyToken, deleteImage, petController.deletePet);

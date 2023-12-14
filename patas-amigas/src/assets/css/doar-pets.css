@@ -1,0 +1,147 @@
+.form-container-content {
+    min-height: calc(100vh - 7em);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.input-label {
+    position: absolute;
+    top: .8em;
+    left: 1em;
+    transition: .2s;
+}
+
+.input-answer {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+    width: 100%;
+    padding: 1em;
+}
+
+.input-answer:focus ~ .input-label,
+.input-answer:valid ~ .input-label {
+    top: -1.2em;
+    font-size: .8em;
+}
+
+textarea {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 1em;
+    border-radius: 1em;
+    resize: none;
+    background-color: transparent;
+    border: 1px solid #000;
+    outline: none;
+}
+
+.textarea-formulario {
+    height: 10em;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.input-file {
+    display: inline-block;
+    cursor: pointer;
+    margin: 1em 0;
+    background-color: var(--blue);
+    font-weight: bold;
+    color: var(--white);
+    padding: 1em;
+}
+
+.form-toggle p {
+    display: inline;
+}
+
+.button-form-toggle {
+    margin-left: .2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.button-form-toggle:hover {
+    text-decoration: underline;
+}
+
+button {
+    position: relative;
+    background-color: var(--blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: var(--white);
+    padding: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+button span {
+    z-index: 1;
+    position: relative;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--blue-hover);
+    transition: width .5s, height .5s;
+}
+
+button:hover::before {
+    width: 100vw;
+    height: 100vh;
+}
+
+.account-panel-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 1150px) {
+    .form-container-content {
+        min-height: calc(100vh - 5.5em);
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .img {
+        display: none;
+    }
+
+    .account-panel-buttons {
+        justify-content: space-between;
+    }
+}

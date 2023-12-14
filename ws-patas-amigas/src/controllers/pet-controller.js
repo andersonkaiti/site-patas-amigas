@@ -5,7 +5,6 @@ const db = require("../../config/database");
 const repository = require("../repositories/pet-repository");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const salt = 10;
 
 exports.verifyToken = (req, res, next) => {
   const token = req.cookies.token;
@@ -93,7 +92,7 @@ exports.verifyTokenUser = async (req, res) => {
         id_doador,
         res
       );
-      res.status(200).json(data);
+      res.status(202).json(data);
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         res.json({ status: "unauthorized" });
@@ -134,7 +133,7 @@ exports.verifyTokenPetEdit = async (req, res) => {
       const { id, race } = req.body;
       const decoded = jwt.verify(token, secret);
       const data = await repository.verifyTokenPetEdit(decoded.email, id, res);
-      res.status(200).json(data);
+      res.status(202).json(data);
     } catch (error) {
       if (error.name === "TokenExpiredError") {
         res.json({ status: "unauthorized" });

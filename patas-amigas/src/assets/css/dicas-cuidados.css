@@ -1,0 +1,16 @@
+.dicas-cuidados section h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.dicas-cuidados h2 {
+    margin: 1em 0 .5em 0; 
+}
+
+.dicas-cuidados section {
+    margin: 2em 0;
+}
+
+.dicas-cuidados p {
+    font-size: 1.2em;
+}

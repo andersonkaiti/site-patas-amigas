@@ -10,9 +10,11 @@ router.get("/validation", userController.verifyToken, userController.validation)
 // registra o usuário e criptografa a senha
 router.post("/register", userController.register);
 
+// valida o token antes de editar os dados do usuário
 router.post("/user-edit-validation", userController.verifyTokenUser);
 
-router.post("/update-user", userController.updateUser);
+// atualiza o nome e telefone do usuário
+router.put("/update-user", userController.updateUser);
 
 // loga o usuário e retorna um token como cookie
 router.post("/login", userController.login);

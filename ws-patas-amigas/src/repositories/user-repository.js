@@ -103,10 +103,14 @@ exports.login = (email, password, res) => {
                   expiresIn: "1h",
                 }
               );
-              res.cookie("token", token);
+              res.cookie("token", token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax"
+              });
               resolve({ status: "success" });
             } else {
-              reject({ status: "unauthorized" });
+              res.json({ status: "unauthorized" });
             }
           });
         } else {
@@ -152,8 +156,8 @@ exports.deleteUser = (id) => {
             reject(error);
           } else {
             const sql = `
-                            DELETE FROM doador
-                            WHERE id = ?
+                  DELETE FROM doador
+                  WHERE id = ?
                         `;
             db.query(sql, id, (error, result) => {
               const sql = `

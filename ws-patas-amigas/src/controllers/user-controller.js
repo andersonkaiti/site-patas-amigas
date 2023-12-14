@@ -54,7 +54,7 @@ exports.verifyTokenUser = async(req, res) => {
             const { id } = req.body;
             const decoded = jwt.verify(token, secret);
             const data = await repository.verifyTokenUser(decoded.email, id, res);
-            res.status(200).json(data);
+            res.status(202).json(data);
         } catch(error) {
             if(error.name === "TokenExpiredError") {
                 res.json({ status: "unauthorized" });
@@ -88,7 +88,13 @@ exports.login = async(req, res) => {
 };
 
 exports.logout = (req, res) => {
-    res.clearCookie("token");
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+    res.setHeader('Pragma', 'no-cache');
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax"
+    });
     res.status(200).json({
         status: "success"
     })
@@ -108,6 +114,11 @@ exports.deleteUser = async(req, res, next) => {
     try {
         const { id_doador } = req.body;
         const data = await repository.deleteUser(id_doador);
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None'
+        });
         res.status(200).json(data);
     } catch(error) {
         res.status(500).json(error);
