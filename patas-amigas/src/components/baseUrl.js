@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3306";
-// const baseUrl = "https://ws-patas-amigas.vercel.app";
+// const baseUrl = "http://localhost:3000";
+const baseUrl = "https://ws-patas-amigas.vercel.app";
 
 export default baseUrl;
